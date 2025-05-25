@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { 
-  Menu,
-  Home,
-  UserRound,
-  Briefcase,
-  Folder,
-  Info 
-} from "lucide-react";
+import { Menu, Home, UserRound, Briefcase, Folder, Info } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { Button } from "./ui/button";
 import {
@@ -27,25 +20,25 @@ const Navbar = () => {
 
   const navigation = [
     isHome
-      ? { 
-          name: t.nav.about, 
+      ? {
+          name: t.nav.about,
           href: "/about",
-          icon: <Info className="h-5 w-5" /> 
+          icon: <Info className="h-5 w-5" />,
         }
-      : { 
-          name: t.nav.home, 
+      : {
+          name: t.nav.home,
           href: "/",
-          icon: <Home className="h-5 w-5" /> 
+          icon: <Home className="h-5 w-5" />,
         },
-    { 
-      name: t.nav.services, 
+    {
+      name: t.nav.services,
       href: "/services",
-      icon: <Briefcase className="h-5 w-5" /> 
+      icon: <Briefcase className="h-5 w-5" />,
     },
-    { 
-      name: t.nav.portfolio, 
+    {
+      name: t.nav.portfolio,
       href: "/portfolio",
-      icon: <Folder className="h-5 w-5" /> 
+      icon: <Folder className="h-5 w-5" />,
     },
   ];
 
@@ -63,11 +56,8 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link
-                to="/"
-                className="text-2xl font-bold font-space bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-              >
-                Train Solution
+              <Link to="/" className="">
+                <img width={60} height={60} src="./logo.png" alt="" />
               </Link>
             </div>
 
@@ -90,20 +80,12 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Language Selector & Mobile Menu */}
+            {/* Language Selector */}
             <div className="flex items-center space-x-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="bg-white/50"
-                  >
-                    {
-                      languages.find(
-                        (lang) => lang.code === language
-                      )?.name
-                    }
+                  <Button variant="outline" size="sm" className="bg-white/50">
+                    {languages.find((lang) => lang.code === language)?.name}
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg">
@@ -112,9 +94,7 @@ const Navbar = () => {
                       key={lang.code}
                       onClick={() => setLanguage(lang.code)}
                       className={`cursor-pointer ${
-                        language === lang.code
-                          ? "bg-blue-50 text-blue-600"
-                          : ""
+                        language === lang.code ? "bg-blue-50 text-blue-600" : ""
                       }`}
                     >
                       {lang.name}
@@ -122,24 +102,13 @@ const Navbar = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-
-              {/* Mobile menu button */}
-              <div className="md:hidden">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsOpen(!isOpen)}
-                >
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </div>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Mobile Bottom Navigation */}
-      <motion.div 
+      <motion.div
         className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 shadow-lg"
         initial={{ y: 100 }}
         animate={{ y: 0 }}
@@ -161,7 +130,7 @@ const Navbar = () => {
                 }`}
               >
                 {item.icon}
-                <motion.span 
+                <motion.span
                   className="text-xs mt-1"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -174,48 +143,6 @@ const Navbar = () => {
           ))}
         </div>
       </motion.div>
-
-      {/* Mobile Dropdown Navigation */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            className="md:hidden fixed inset-0 z-50 pt-16 bg-white/95 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            <motion.div 
-              className="px-2 pt-2 pb-3 space-y-1 border-t border-gray-200"
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <motion.div
-                    whileTap={{ scale: 0.95 }}
-                    className={`flex items-center px-3 py-3 text-base font-medium transition-colors duration-200 ${
-                      location.pathname === item.href
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
-                  >
-                    <span className="mr-3">
-                      {item.icon}
-                    </span>
-                    {item.name}
-                  </motion.div>
-                </Link>
-              ))}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };

@@ -1,5 +1,5 @@
-import { useLanguage } from '../contexts/LanguageContext';
-import ServiceCard from '../components/ServiceCard';
+import { useLanguage } from "../contexts/LanguageContext";
+import ServiceCard from "../components/ServiceCard";
 
 const Services = () => {
   const { t } = useLanguage();
@@ -28,18 +28,6 @@ const Services = () => {
     {
       title: t.services.items.branding.title,
       description: t.services.items.branding.description,
-    },
-    {
-      title: t.services.items.games.title,
-      description: t.services.items.games.description,
-    },
-    {
-      title: t.services.items.ai.title,
-      description: t.services.items.ai.description,
-    },
-    {
-      title: t.services.items.cybersecurity.title,
-      description: t.services.items.cybersecurity.description,
     },
   ];
 

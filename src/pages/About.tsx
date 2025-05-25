@@ -1,4 +1,4 @@
-import { useLanguage } from '../contexts/LanguageContext';
+import { useLanguage } from "../contexts/LanguageContext";
 
 const About = () => {
   const { t } = useLanguage();
@@ -12,12 +12,12 @@ const About = () => {
               {t.about.title}
             </span>
           </h1>
-          
+
           <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12 animate-scale-in">
             <div className="prose prose-lg max-w-none">
-              {t.about.content.split('\n\n').map((paragraph, index) => (
-                <p 
-                  key={index} 
+              {t.about.content.split("\n\n").map((paragraph, index) => (
+                <p
+                  key={index}
                   className="text-gray-700 leading-relaxed mb-6 text-lg animate-fade-in-up"
                   style={{ animationDelay: `${index * 200}ms` }}
                 >
@@ -25,17 +25,30 @@ const About = () => {
                 </p>
               ))}
             </div>
-            
+
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                <div className="text-4xl font-bold text-blue-600 mb-2">2020</div>
+              <div
+                className="text-center animate-fade-in-up"
+                style={{ animationDelay: "400ms" }}
+              >
+                <div className="text-4xl font-bold text-blue-600 mb-2">
+                  2020
+                </div>
                 <div className="text-gray-600">Founded</div>
               </div>
-              <div className="text-center animate-fade-in-up" style={{ animationDelay: '600ms' }}>
-                <div className="text-4xl font-bold text-purple-600 mb-2">100+</div>
+              <div
+                className="text-center animate-fade-in-up"
+                style={{ animationDelay: "600ms" }}
+              >
+                <div className="text-4xl font-bold text-purple-600 mb-2">
+                  100+
+                </div>
                 <div className="text-gray-600">Specialists</div>
               </div>
-              <div className="text-center animate-fade-in-up" style={{ animationDelay: '800ms' }}>
+              <div
+                className="text-center animate-fade-in-up"
+                style={{ animationDelay: "800ms" }}
+              >
                 <div className="text-4xl font-bold text-green-600 mb-2">∞</div>
                 <div className="text-gray-600">Possibilities</div>
               </div>
