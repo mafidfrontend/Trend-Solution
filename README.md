@@ -13,7 +13,7 @@ This project is built with modern web technologies to deliver a fast and efficie
 ## 📦 Installation
 
 ```bash
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/mafidfrontend/Trend-Solution/)
+git clone https://github.com/mafidfrontend/Trend-Solution
 cd Trend-Solution
 npm install
 
