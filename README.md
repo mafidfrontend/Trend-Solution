@@ -49,19 +49,3 @@ bash
 Copy
 Edit
 npm run build
-
-🧪 Development
-To start the development server:
-
-bash
-Copy
-Edit
-npm run dev
-
-🏗️ Build
-To create a production-ready build:
-
-bash
-Copy
-Edit
-npm run build
